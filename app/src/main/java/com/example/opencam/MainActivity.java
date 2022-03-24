@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Uri uri =data.getData();
         cover.setImageURI(uri);
+        if (resultCode==RESULT_OK) {
+
+            Intent intent = new Intent(this, drawing.class);
+            intent.putExtra("image_path", uri.toString());
+            startActivity(intent);
+        }
+
 
     }
+
 }

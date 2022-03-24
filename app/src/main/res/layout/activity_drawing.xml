@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".drawing">
+
+    <TextView
+        android:id="@+id/sourceuri"
+        android:layout_width="414dp"
+        android:layout_height="62dp"
+        android:paddingLeft="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="408dp"
+        android:layout_height="600dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sourceuri"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="438dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/background_dark"
+            android:scaleType="centerInside" />
+
+        <ImageView
+            android:id="@+id/drawingpane"
+            android:layout_width="match_parent"
+            android:layout_height="438dp"
+            android:layout_alignLeft="@id/result"
+            android:layout_alignTop="@id/result"
+            android:layout_alignRight="@id/result"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/drawrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="draw_Rect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.207" />
+</androidx.constraintlayout.widget.ConstraintLayout>
