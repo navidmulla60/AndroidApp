@@ -73,7 +73,7 @@ public class drawing extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int size = point_store.size();
-                textSource.setText("point 1 is:  "+point_store.get(0));
+                //textSource.setText("point 1 is:  "+point_store.get(0));
                /* textSource.setText("point 2 is :  "+point_store.get(1));
                 textSource.setText("point 3 is:  "+point_store.get(2));
                 textSource.setText("point 4 is:  "+point_store.get(3));*/
@@ -138,10 +138,6 @@ public class drawing extends AppCompatActivity {
                                             //textSource.setText(" sx : "+rectStartPt.x+" sy: "+rectStartPt.y+"   ex: "+endPt.x+" ey: "+endPt.y +"px: "+xx+"py: "+ yy);
                                             canvasDrawingPane.drawPoint(xx, yy, paint);
                                             }
-                                        /*else if(xx < rectStartPt.x & xx > endPt.x & yy > endPt.y & yy < rectStartPt.y){
-                                            paint.setColor(Color.RED);
-                                            canvasDrawingPane.drawPoint(xx, yy, paint);
-                                            }*/
                                         }
                                     if (rectStartPt.x>endPt.x) {
                                         if (xx < rectStartPt.x & xx > endPt.x & yy > rectStartPt.y & yy < endPt.y) {
@@ -151,14 +147,7 @@ public class drawing extends AppCompatActivity {
                                             canvasDrawingPane.drawPoint(xx, yy, paint);
                                         }
                                     }
-                                        /*else if(xx> rectStartPt.x & xx<endPt.x & yy< endPt.y & yy> rectStartPt.y){
-                                            paint.setColor(Color.RED);
-                                            canvasDrawingPane.drawPoint(xx, yy, paint);*//*
-                                        }
-                                    }*/
 
-
-                                    //canvasDrawingPane.drawPoint(xx, yy, paint);
                                 }
 
 
@@ -484,7 +473,12 @@ public class drawing extends AppCompatActivity {
     private Object projectXY(ImageView view, Bitmap bitmapMaster, int x, int y) {
         if(x<0 || y<0 || x > view.getWidth() || y > view.getHeight()){
             //outside ImageView
-            return null;
+            x=view.getWidth();
+            y=view.getHeight();
+            int projectedX = (int)((double)x * ((double)bitmapMaster.getWidth()/(double)view.getWidth()));
+            int projectedY = (int)((double)y * ((double)bitmapMaster.getHeight()/(double)view.getHeight()));
+            return new projectPt(projectedX,projectedY);
+            //return null;
         }else{
             int projectedX = (int)((double)x * ((double)bitmapMaster.getWidth()/(double)view.getWidth()));
             int projectedY = (int)((double)y * ((double)bitmapMaster.getHeight()/(double)view.getHeight()));
